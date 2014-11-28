@@ -120,8 +120,11 @@ function listprob($id)
 function displaymessage()
 {
   if(!empty($_SESSION['msg'])) {
+    echo '<div class="padding-10 bg-white">';
+    echo '<div class="tools-alert tools-alert-red">';
     echo "<b>" . $_SESSION['msg'] . "</b>";
-    echo "<hr>";
+    echo "</div>";
+    echo "</div>";
     unset($_SESSION['msg']);
   }
 }
@@ -155,11 +158,15 @@ function listteam($user_group)
 
 function listadmintools()
 {
-  echo '<a href="admin/upload_std_info.php">[upload student info]</a> ';
-  echo '<a href="admin/list_password.php">[list user passwords]</a> ';
-  echo '<a href="admin/random_user_password.php">[random user passwords]</a> ';
-  echo '<a href="admin/list_printer.php">[list printers]</a> ';
-  echo "<hr>\n";
+  echo '<nav class="navbar navbar-pills">
+      <ul>
+          <li><a class="btn btn-black" href="main.php">หน้าหลัก</a></li>
+          <li><a class="btn btn-blue" href="admin/upload_std_info.php" target="_blank">สร้างผู้ใช้งาน</a></li>
+          <li><a class="btn btn-blue" href="admin/list_password.php" target="_blank">ผู้ใช้งาน</a></li>
+          <li><a class="btn btn-red" href="admin/random_user_password.php" target="_blank">สุ่มรหัสผ่าน</a></li>
+          <li><a class="btn btn-green" href="main.php?url=admin/genscore.php">ผลคะแนนการแข่งขัน</a></li>
+      </ul>
+  </nav>';
 }
 
 function displaysubmitbox($id, $proboption)

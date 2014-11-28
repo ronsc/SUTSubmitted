@@ -8,9 +8,11 @@
 </head>
 
 <body>
-<form action="genreport.php" method="get">
-เวลาเริ่มการแข่งขัน<br />
-<select name="hour">
+<form class="forms forms-inline" action="admin/genreport.php" method="get" target="_blank">
+
+<div class="tools-alert tools-alert-blue" align="center" style="padding: 50px;">
+<font size=5>เวลาเริ่มการแข่งขัน : 
+<select name="hour" style="font-size: 16pt; width: 100px;">
 	<?php
 		for($i=0; $i<=23; $i++){
 			echo '<option value="'.$i.'">'.$i.'</option>';
@@ -18,15 +20,17 @@
 	?>
 </select> 
 :
-<select name="minute">
+<select name="minute" style="font-size: 16pt; width: 100px;">
 	<?php
 		for($i=0; $i<=59; $i++){
 			echo '<option value="'.$i.'">'.$i.'</option>';
 		}
 	?>
-</select> 
-<br />
-<input type="submit" />
+</select>
+น. </font>
+<button type="submit" class="btn btn-blue">ดูคะแนน</button>
+</div>
+
 </form>
 </body>
 </html>

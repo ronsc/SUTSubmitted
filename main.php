@@ -32,28 +32,42 @@
 
 
 <?php if($_SESSION['type']==USERTYPE_ADMIN): ?>
-  <div class="unit-centered unit-80 bg-white padding-10">
+<div class="unit-centered unit-80 bg-white padding-10">
   <?php listadmintools(); ?>
 </div>
 <?php endif; ?>
 
-<?php displaymessage(); ?>
+<div class="unit-centered unit-80">
+    <?php displaymessage(); ?>
+</div>
 
 <?php if(($_SESSION['type']==USERTYPE_ADMIN) || ($_SESSION['type']==USERTYPE_CONTESTANT)) : ?>
-<div class="unit-centered unit-80">
-        <div class="utits-row end">
-          <div class="unit-60 padding-10 bg-white">
-            <?php listprob($id); ?>
-          </div>
-          <div class="unit-40 padding-10 bg-white">
-            <?php displaysubmitbox($id, $proboption); ?>
-          </div>
-        </div>
+  <?php if(!isset($_GET["url"])): ?>
+  <div class="unit-centered unit-80">
+    <div class="utits-row end">
+      <div class="unit-60 padding-10 bg-white">
+        <?php listprob($id); ?>
       </div>
+      <div class="unit-40 padding-10 bg-white">
+        <?php displaysubmitbox($id, $proboption); ?>
+      </div>
+    </div>
+  </div>
+  <?php else: ?>
+  <div class="unit-centered unit-80">
+    <div class="utits-row end">
+      <div class="padding-10 bg-white">
+        <?php require_once($_GET["url"]); ?>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
+
 <?php else: ?>
   <?php listteam($_SESSION['group']); ?>
 <?php endif; ?>
 </div>
+
 </body>
 </html>
 
